@@ -1,13 +1,23 @@
-import React from 'react'
+// Details.js
+import React from 'react';
+import './details.css'
 
-function Details() {
+function Details({ itemsPerPage, setItemsPerPage }) {
+  function handleItemsPerPageChange(event) {
+    const newItemsPerPage = parseInt(event.target.value, 10);
+    setItemsPerPage(newItemsPerPage);
+  }
 
-    
   return (
     <div>
-       
-        </div>
-  )
+      <select value={itemsPerPage} onChange={handleItemsPerPageChange} className="perpageclass">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+    </div>
+  );
 }
 
-export default Details
+export default Details;

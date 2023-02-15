@@ -3,8 +3,8 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./Formstyle.css";
-import {useDispatch, useSelector} from "react-redux"
-import { getSearchTodoData, getTodoData } from "../Redux/TodoRedux/Todo_Action";
+import {useDispatch} from "react-redux"
+import {  getTodoData } from "../Redux/TodoRedux/Todo_Action";
 
 const initData={
   id:"",
@@ -36,7 +36,7 @@ if(item){
   .then((response) => {
     console.log(response);
     dispatch(getTodoData())   
-    alert("data updated successfully")
+    alert(  "data updated successfully")
   })
   .catch((err) => {
     console.log(err);
@@ -53,6 +53,10 @@ if(item){
   });
 };
 }
+
+const handleReset = () => {
+  setuser(initData);
+};
 
   return (
     <Form onSubmit={dataSubmit}>
@@ -132,13 +136,17 @@ if(item){
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox"  className="Check_me" label="Check me out" defaultChecked/>
+        <Form.Check type="checkbox"  className="Check_me" label="Check term conditon" defaultChecked/>
       </Form.Group>
-      <div className="text-center">
+      <div className="d-flex justify-content-around">
          <Button variant=" " className="button-29" type="submit"  >
         Submit
       </Button>
+      <Button variant=" " className="button-30" type="reset" onClick={handleReset}  >
+        Reset
+      </Button>
       </div>
+    
      
     </Form>
   );

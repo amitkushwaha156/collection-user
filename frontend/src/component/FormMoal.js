@@ -125,7 +125,7 @@ const handleReset = () => {
         <Form.Select className="mb-3"
           aria-label="Floating label "
           onChange={(e) => setuser({ ...user, city: e.target.value })}
-          defaultValue="ahmedabad"
+          
         >
           <option  >City</option>
           <option value="satna">Satna</option>

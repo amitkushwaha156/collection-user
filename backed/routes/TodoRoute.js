@@ -18,7 +18,7 @@ app.get("/todo", async (req, res) => {
     const limit = parseInt(req.query.limit) || 10;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
-    const todoModels = await todoModel.find().sort({name: 1}).skip(startIndex).limit(limit);
+    const todoModels = await todoModel.find().skip(startIndex).limit(limit).sort({name: 1});
     const total = await todoModel.countDocuments();
     const results = {};
     if (endIndex < total) {
@@ -49,7 +49,7 @@ app.get("/todo/:name", async (req, res) => {
   try {
  const todoitemModels = await todoModel.find({
       name: { $regex: name, $options: "i" },
-    });
+    }).sort({name: 1});
     res.send(todoitemModels)
     console.log(todoitemModels)
   } catch (e) {

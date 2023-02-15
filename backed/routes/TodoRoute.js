@@ -4,7 +4,7 @@ const app = require("express").Router();
 
 app.get("/todo", async (req, res) => {
   try {
-    const todoModels = await todoModel.find();
+    const todoModels = await todoModel.find().sort({name: 1});
     res.send(todoModels);
   } catch (e) {
     res.status(400).send(e);
@@ -18,7 +18,7 @@ app.get("/todo", async (req, res) => {
     const limit = parseInt(req.query.limit) || 10;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
-    const todoModels = await todoModel.find().skip(startIndex).limit(limit);
+    const todoModels = await todoModel.find().sort({name: 1}).skip(startIndex).limit(limit);
     const total = await todoModel.countDocuments();
     const results = {};
     if (endIndex < total) {

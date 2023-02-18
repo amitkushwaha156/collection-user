@@ -28,7 +28,7 @@ const handleDelete=(del)=>{
 
 useEffect(() => {
   dispatch(getTodoData())  
-},[]); 
+},[dispatch]); 
 
 
 // Get current posts

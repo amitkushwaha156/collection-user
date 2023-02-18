@@ -15,7 +15,7 @@ const dispatch=useDispatch()
 
   useEffect(() => {
     dispatch(getTodoData())    
-  }, []);
+  }, [dispatch]);
   
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
@@ -24,7 +24,7 @@ const dispatch=useDispatch()
  
   useEffect(() => {
     dispatch(getSearchTodoData({name:searchTerm}))    
-  }, [searchTerm]);
+  });
 
 
 

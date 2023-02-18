@@ -19,7 +19,7 @@ const initData={
 function FormMoal({item}) {
   const dispatch=useDispatch()
   const [user, setuser] = useState(item || initData);
-  console.log(user)
+  //console.log(user)
 
   let name, value;
   const handeler = (e) => {

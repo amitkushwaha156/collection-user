@@ -7,8 +7,6 @@ import {useDispatch, useSelector} from "react-redux"
 import { getTodoData } from "../Redux/TodoRedux/Todo_Action";
 import Details from './Details';
 
-jest.mock('axios');
-a
 
 function Tablee({item}) {
   const [itemsPerPage, setItemsPerPage] = useState(5);
